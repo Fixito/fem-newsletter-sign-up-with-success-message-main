@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+  </head>
+  <body>
+    <main class="main-content">
+      <section class="newsletter">
+        <h1 class="newsletter__title">Stay updated!</h1>
+
+        <p class="newsletter__description">
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
+
+        <ul class="newsletter__list">
+          <li class="newsletter__list-item">
+            <img
+              src="./assets/images/icon-list.svg"
+              alt=""
+              class="newsletter__list-icon"
+            />
+            Product discovery and building what matters
+          </li>
+          <li class="newsletter__list-item">
+            <img
+              src="./assets/images/icon-list.svg"
+              alt=""
+              class="newsletter__list-icon"
+            />
+            Measuring to ensure updates are a success
+          </li>
+          <li class="newsletter__list-item">
+            <img
+              src="./assets/images/icon-list.svg"
+              alt=""
+              class="newsletter__list-icon"
+            />
+            And much more!
+          </li>
+        </ul>
+
+        <form class="newsletter__form">
+          <div class="newsletter__fom-row">
+            <div class="newsletter__form-group">
+              <label for="email" class="newsletter__label"
+                >Email address</label
+              >
+              <span
+                id="email-error"
+                aria-live="polite"
+                class="newsletter__error"
+                >Valid email required</span
+              >
+            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ash@loremcompany.com"
+              aria-describedby="email-error"
+              class="newsletter__input"
+            />
+          </div>
+
+          <button type="submit" class="newsletter__button">
+            Subscribe to monthly newsletter
+          </button>
+        </form>
+      </section>
+
+      <picture class="newsletter__illustration">
+        <source
+          srcset="./assets/images/illustration-sign-up-desktop.svg"
+          media="(min-width: 1280px)"
+        />
+        <img
+          src="./assets/images/illustration-sign-up-mobile.svg"
+          alt="Illustration"
+        />
+      </picture>
+
+      <!-- modal -->
+      <div
+        role="dialog"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        class="modal"
+      >
+        <img
+          src="./assets/images/icon-success.svg"
+          alt="Success icon"
+          class="modal__icon"
+        />
+
+        <h2 id="modal-title" class="modal__title">
+          Thanks for subscribing!
+        </h2>
+
+        <p id="modal-description" class="modal__description">
+          A confirmation email has been sent to
+          <span>ash@loremcompany.com</span>. Please open it and click
+          the button inside to confirm your subscription.
+        </p>
+
+        <button class="modal__button">Dismiss message</button>
+      </div>
+    </main>
+  </body>
+</html>
