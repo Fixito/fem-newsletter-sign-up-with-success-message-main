@@ -64,6 +64,16 @@ h2 {
   line-height: 1;
 }
 
+input.invalid {
+  border: 1px solid var(--clr-vermillion);
+  background-color: rgba(255 97 85 / 0.15);
+  color: var(--clr-vermillion);
+}
+
+input:focus.invalid {
+  outline: none;
+}
+
 .img {
   display: block;
   max-inline-size: 100%;
