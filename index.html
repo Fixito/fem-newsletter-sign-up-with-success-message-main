@@ -16,6 +16,10 @@
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
+    <!-- normalize -->
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <main class="main-content">
@@ -63,8 +67,7 @@
                 id="email-error"
                 aria-live="polite"
                 class="newsletter__error"
-                >Valid email required</span
-              >
+              ></span>
             </div>
             <input
               type="email"
@@ -76,7 +79,7 @@
             />
           </div>
 
-          <button type="submit" class="newsletter__button">
+          <button type="submit" class="btn">
             Subscribe to monthly newsletter
           </button>
         </form>
@@ -90,34 +93,37 @@
         <img
           src="./assets/images/illustration-sign-up-mobile.svg"
           alt="Illustration"
+          class="img newsletter__illustration"
         />
       </picture>
+    </main>
 
-      <!-- modal -->
+    <!-- modal -->
+    <div class="modal__overlay">
       <div
         role="dialog"
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
         class="modal"
       >
-        <img
-          src="./assets/images/icon-success.svg"
-          alt="Success icon"
-          class="modal__icon"
-        />
-
-        <h2 id="modal-title" class="modal__title">
-          Thanks for subscribing!
-        </h2>
-
-        <p id="modal-description" class="modal__description">
-          A confirmation email has been sent to
-          <span>ash@loremcompany.com</span>. Please open it and click
-          the button inside to confirm your subscription.
-        </p>
-
-        <button class="modal__button">Dismiss message</button>
+        <div class="modal__content">
+          <img
+            src="./assets/images/icon-success.svg"
+            alt="Success icon"
+            class="img modal__icon"
+          />
+          <h2 id="modal-title" class="modal__title">
+            Thanks for subscribing!
+          </h2>
+          <p id="modal-description" class="modal__description">
+            A confirmation email has been sent to
+            <span class="modal__email">ash@loremcompany.com</span>.
+            Please open it and click the button inside to confirm your
+            subscription.
+          </p>
+        </div>
+        <button class="btn">Dismiss message</button>
       </div>
-    </main>
+    </div>
   </body>
 </html>
