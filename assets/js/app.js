@@ -3,6 +3,7 @@ const modalBtn = document.querySelector('.modal .btn');
 const modalOverlay = document.querySelector('.modal__overlay');
 const emailInput = document.querySelector('.newsletter__input');
 const emailErrorField = document.querySelector('#email-error');
+const modalEmail = document.querySelector('.modal__email');
 
 form.setAttribute('novalidate', '');
 
@@ -35,6 +36,7 @@ const handleSubmit = (e) => {
   } else {
     emailErrorField.textContent = '';
     emailInput.classList.remove('invalid');
+    modalEmail.textContent = email;
     modalOverlay.classList.add('modal--active');
   }
 };
