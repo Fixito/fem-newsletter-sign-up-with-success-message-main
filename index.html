@@ -26,79 +26,64 @@
   <body>
     <main class="main-content">
       <section class="newsletter">
-        <h1 class="newsletter__title">Stay updated!</h1>
+        <picture class="newsletter__illustration">
+          <source
+            srcset="./assets/images/illustration-sign-up-desktop.svg"
+            media="(min-width: 768px)"
+          />
+          <img
+            src="./assets/images/illustration-sign-up-mobile.svg"
+            alt=""
+            class="img newsletter__illustration"
+          />
+        </picture>
 
-        <p class="newsletter__description">
-          Join 60,000+ product managers receiving monthly updates on:
-        </p>
+        <div class="newsletter__content">
+          <h1 class="newsletter__title">Stay updated!</h1>
 
-        <ul class="newsletter__list">
-          <li class="newsletter__list-item">
-            <img
-              src="./assets/images/icon-list.svg"
-              alt=""
-              class="newsletter__list-icon"
-            />
-            Product discovery and building what matters
-          </li>
-          <li class="newsletter__list-item">
-            <img
-              src="./assets/images/icon-list.svg"
-              alt=""
-              class="newsletter__list-icon"
-            />
-            Measuring to ensure updates are a success
-          </li>
-          <li class="newsletter__list-item">
-            <img
-              src="./assets/images/icon-list.svg"
-              alt=""
-              class="newsletter__list-icon"
-            />
-            And much more!
-          </li>
-        </ul>
+          <p class="newsletter__description">
+            Join 60,000+ product managers receiving monthly updates
+            on:
+          </p>
 
-        <form class="newsletter__form">
-          <div class="newsletter__fom-row">
-            <div class="newsletter__form-group">
-              <label for="email" class="newsletter__label"
-                >Email address</label
-              >
-              <span
-                id="email-error"
-                aria-live="polite"
-                class="newsletter__error"
-              ></span>
+          <ul role="list" class="newsletter__list">
+            <li class="newsletter__list-item">
+              Product discovery and building what matters
+            </li>
+            <li class="newsletter__list-item">
+              Measuring to ensure updates are a success
+            </li>
+            <li class="newsletter__list-item">And much more!</li>
+          </ul>
+
+          <form class="newsletter__form">
+            <div class="newsletter__fom-row">
+              <div class="newsletter__form-group">
+                <label for="email" class="newsletter__label"
+                  >Email address</label
+                >
+                <span
+                  id="email-error"
+                  aria-live="polite"
+                  class="newsletter__error"
+                ></span>
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@company.com"
+                aria-describedby="email-error"
+                class="newsletter__input"
+              />
             </div>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="email@company.com"
-              aria-describedby="email-error"
-              class="newsletter__input"
-              required
-            />
-          </div>
 
-          <button type="submit" class="btn">
-            Subscribe to monthly newsletter
-          </button>
-        </form>
+            <button class="btn">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </div>
       </section>
-
-      <picture class="newsletter__illustration">
-        <source
-          srcset="./assets/images/illustration-sign-up-desktop.svg"
-          media="(min-width: 1280px)"
-        />
-        <img
-          src="./assets/images/illustration-sign-up-mobile.svg"
-          alt="Illustration"
-          class="img newsletter__illustration"
-        />
-      </picture>
     </main>
 
     <!-- modal -->

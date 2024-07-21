@@ -1,15 +1,13 @@
 @font-face {
   font-family: 'Roboto';
-  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: local('Roboto Regular'), url('../fonts/Roboto-Regular.ttf');
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+  src: local('Roboto Bold'), url('../fonts/Roboto-Bold.ttf');
+  font-weight: 700;
 }
 
 :root {
@@ -22,7 +20,7 @@
   --clr-gradient: linear-gradient(#ff6a3a, #ff527b);
 
   /* typography */
-  --ff-body: 'Roboto', sans-serif;
+  --ff-base: 'Roboto', sans-serif;
 
   --fs-sm: 0.75rem;
   --fs-base: 1rem;
@@ -40,18 +38,25 @@
   --shadow-2: 0 16px 32px 0 rgb(255 97 85 / 0.5);
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: var(--ff-body);
+  font-family: var(--ff-base);
+  font-size: var(--ff-base);
   font-weight: var(--fw-regular);
   line-height: 1.5;
-  background-color: var(--clr-white);
   color: var(--clr-dark-navy);
+
+  min-block-size: 100dvh;
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-dark-navy);
 }
 
 ul {
@@ -60,7 +65,9 @@ ul {
 
 h1,
 h2 {
+  margin-block-start: 0;
   font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
   line-height: 1;
 }
 
@@ -71,7 +78,7 @@ input.invalid {
 }
 
 input:focus.invalid {
-  outline: none;
+  outline: 1px solid var(--clr-vermillion);
 }
 
 .img {
@@ -82,50 +89,49 @@ input:focus.invalid {
 
 .btn {
   margin-block-start: 1.5rem;
+  font: inherit;
   font-weight: var(--fw-bold);
   background-color: var(--clr-dark-navy);
-  color: var(--clr-white);
   border: transparent;
+  padding: 1rem;
   border-radius: var(--rounded-lg);
+  color: var(--clr-white);
   inline-size: 100%;
-  padding-block: 1rem;
   cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus-visible {
   background: var(--clr-gradient);
   box-shadow: var(--shadow-2);
 }
 
-.main-content {
-  min-block-size: 100dvh;
-  display: grid;
-}
-
 .newsletter {
-  order: 2;
-  padding: 2.5rem 1.5rem;
   background-color: var(--clr-white);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
 }
 
 .newsletter__illustration {
   inline-size: 100%;
+  margin-inline: auto;
 }
 
-.newsletter__title {
-  margin-block-start: 0;
+.newsletter__content {
+  padding: 2.5rem 1.5rem;
 }
 
-.newsletter__description {
-  margin-block-start: 1.5rem;
-}
-
+.newsletter__description,
 .newsletter__list {
   margin-block-start: 1.5rem;
 }
 
 .newsletter__list > * + * {
   margin-block-start: 0.625rem;
+}
+
+.newsletter__list-item::before {
+  content: url(../images/icon-list.svg);
 }
 
 .newsletter__list-item {
@@ -141,29 +147,24 @@ input:focus.invalid {
 .newsletter__form-group {
   display: flex;
   justify-content: space-between;
-}
-
-.newsletter__label {
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
 }
 
 .newsletter__error {
   color: var(--clr-vermillion);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-bold);
 }
 
 .newsletter__input {
   margin-block-start: 0.5rem;
-  border: 1px solid var(--clr-grey);
-  border-radius: var(--rounded-lg);
   padding: 1rem 1.5rem;
+  border-radius: var(--rounded-lg);
+  border: 1px solid var(--clr-grey);
   inline-size: 100%;
 }
 
 .newsletter__input::placeholder {
-  font-family: inherit;
+  color: var(--clr-grey);
 }
 
 /* 
@@ -205,30 +206,23 @@ Modal
   font-weight: var(--fw-bold);
 }
 
-@media screen and (min-width: 790px) {
+@media screen and (min-width: 768px) {
   body {
-    background-color: var(--clr-dark-navy);
-    display: grid;
-    place-content: center;
+    padding-inline: 1rem;
   }
 
-  .main-content {
-    background-color: var(--clr-white);
-    max-inline-size: var(--max-width);
-    display: flex;
+  .newsletter {
+    display: grid;
     align-items: center;
-    gap: 4rem;
+    grid-template-columns: 1fr 0.75fr;
+    max-inline-size: var(--max-width);
     border-radius: var(--rounded-3xl);
     padding: 1.5rem;
     box-shadow: var(--shadow-1);
   }
 
-  .newsletter {
-    order: 0;
-  }
-
   .newsletter__illustration {
-    max-inline-size: 25rem;
+    order: 1;
   }
 
   .modal__overlay {
